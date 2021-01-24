@@ -1,0 +1,250 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+\usepackage{amssymb}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Tutorial 2}
+\newcommand{\hmwkDueDate}{January 26, 2021}
+\newcommand{\hmwkClass}{CZ2003}
+\newcommand{\hmwkClassTime}{SS3}
+\newcommand{\hmwkClassInstructor}{Assoc Prof Alexei Sourin}
+\newcommand{\hmwkAuthorName}{\textbf{Pang Yu Shao}}
+\newcommand{\hmwkAuthorID}{\textbf{U1721680D}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 10:30am}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ - \hmwkClassTime}}
+    \vspace{3in}\\
+    \hmwkAuthorName\\
+    \hmwkAuthorID
+}
+
+\date{24/01/2021}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}
+    Give a definition of mathematical function.\\
+
+    \textbf{Solution}\\
+    In mathematics, a function is a relation from a set of inputs to a set of possible outputs.
+    A function maps a single input value (or argument) within the input domain to a single 
+    output value falling within the function range.
+
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    What ways of defining mathematical functions do you know?\\
+
+
+    \textbf{Solution}\\
+    Three ways:
+    \begin{itemize}
+        \item Implicit functions - a function that will equate to 0\\
+        e.g.: \(f(x,y,z,t) = 0\), where \(x,y,z\) are Cartesian 
+        coordinates and \(t\) is the time
+
+        \item Explicit functions - a function which output is manipulated by its inputs\\
+        e.g.: \(g=f(x,y,z,t)\)
+
+        \item Parametric functions - a set of explicit functions which creates values 
+        of co-ordinates from inputs consisting of variables from other domain
+         (i.e., parametric coordinates)\\
+        e.g.: \(x = f_x(y,v,w,t); y=f_y(u,v,w,t); z=f_z(u,v,w,t)\)
+        
+
+    \end{itemize}
+    
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+    Given an explicit function \(y = sin(x) + cos(x)\), propose how to convert it to the
+    respective parametric functions \(x = f_1(t)\) \(y = f_2(t)\)?\\
+
+    \textbf{Solution}\\
+    We can define the first parametric function as:\\
+    \(\mathbf{x = f_1(t) = t}\)\\
+    The second parametric function can then be obtained as:\\
+    \(\mathbf{y = f_2(t) = sin(t) + cos(t)}\)
+    
+
+
+\end{homeworkProblem}
+
+\pagebreak
+\begin{homeworkProblem}
+    \begin{enumerate}[i]
+        \item Given parametric functions \(x = sin^2(t)\) and \(y = cos(t)\), obtain the
+        respective implicit function \(f(x,y) = 0\).
+        \item Given parametric functions \(x = 2 + 3t\) and \(y = 3 + t\), obtain the
+        respective implicit function \(f(x,y) = 0\).
+    \end{enumerate}
+
+    \textbf{Solution}\\
+    \textbf{Part i}\\
+    \[
+        \begin{split}
+            y  &= cos(t)
+            \\
+            y^2 &= cos^2(t)
+            \\ 
+            \therefore x + y^2 &= sin^2(t) + cos^2(t)
+            \\
+            &= 1
+            \\
+            \mathbf{f(x,y) = x + y^2 - 1} & \mathbf{\ = 0}
+        \end{split}
+    \]
+    \\\\
+    \textbf{Part ii}\\
+    \[
+        \begin{split}
+            y  &= 3+t
+            \\
+            3y &= 9+3t
+            \\ 
+            3t &= 3y - 9
+            \\
+            &
+            \\
+            x &= 2 + (3y - 9)
+            \\
+            &= 3y - 7
+            \\
+            x - 3y &= -7
+            \\
+            \mathbf{f(x,y) = x - 3y + 7} &\mathbf{\ = 0}
+        \end{split}
+    \]
+
+
+    
+\end{homeworkProblem}
+
+    
+
+
+
+\end{document}
