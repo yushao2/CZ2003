@@ -40,7 +40,7 @@
 			\begin{table}[h]
 				\begin{tabular}{lc}
 					Name & Matric Number \\\hline
-					Pang Yu Shao & U1721680D \\
+					Pang Yu Shao & U17216\underline{\textbf{80}}D \\
 				\end{tabular}
 			\end{table}
 			
@@ -115,7 +115,7 @@
 	\begin{subfigure}{.5\textwidth}
 	  \centering
 	  \includegraphics[width=.8\linewidth]{fig/1a2}
-	  \caption{Resolution: 2}
+	  \caption{Resolution: 1}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 	  \centering
@@ -126,7 +126,7 @@
 	\label{fig:1a}
 \end{figure}
 
-As seen in Fig. \ref{fig:1a} above, a sampling resolution of \textbf{2} is sufficient for drawing a straight line segement.
+As seen in Fig. \ref{fig:1a} above, a sampling resolution of \textbf{1} is sufficient for drawing a straight line segement.
 
 \subsection{Circular Arc}
 \begin{figure}[H]
@@ -194,6 +194,7 @@ it to appear smooth. When the sampling resolution is reduced to 100, the polylin
 
 \pagebreak
 \section{Converting Explicitly Defined Curve to Parametric Representations}
+\label{section:p2}
 For this task, an explicitly defined curve has to be converted to its Parametric Representations. The following explicitly defined 
 curve was assigned:
 
@@ -217,13 +218,25 @@ curve was assigned:
 	u \in [0,1]
 \end{displaymath}
 \\
-By plotting the parametric equations defined above, we get the following display:
+By plotting the parametric equations defined above, we get the following display:\\
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.9\linewidth]{fig/2}
-	\caption{Plot of the parametrically defined curve in "\textbf{2.wrl}"}
+	\begin{subfigure}{.4\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/2_200}
+	  \caption{Resolution: 200}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/2_100}
+	  \caption{Resolution: 100}
+	\end{subfigure}
+	\caption{Plots of the parametrically defined curve in "\textbf{2d.wrl}" with differing resolutions}
 	\label{fig:2}
 \end{figure}
+
+When the resolution is 200, a smoother curve is obtained. With a lower sampling resolution like 100, when the 
+figure is zoomed in, the sharp edges of where the polyline interpolations meet is visible.
 
 \pagebreak
 \section{Converting Curve Defined in Polar Coordinates to Parametric Representations}
@@ -269,12 +282,25 @@ The curve is defined by:
 \end{displaymath}
 
 By plotting the parametric equations defined above, we get the following display:
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.5\linewidth]{fig/3}
-	\caption{Plot of the parametrically defined curve in "\textbf{3.wrl}"}
+	\begin{subfigure}{.4\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/3_200}
+	  \caption{Resolution: 200}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/3_100}
+	  \caption{Resolution: 100}
+	\end{subfigure}
+	\caption{Plots of the parametrically defined curve in "\textbf{3.wrl}" with differing resolutions}
 	\label{fig:3}
 \end{figure}
+
+Similar to the figures obtained in Fig \ref{fig:2}, when the resolution is 200, a smoother curve is obtained. With a lower sampling resolution like 100, when the 
+figure is zoomed in, the sharp edges of where the polyline interpolations meet is visible.
+
 
 
 % \begin{figure}[h]
