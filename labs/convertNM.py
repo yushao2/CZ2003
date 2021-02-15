@@ -5,7 +5,7 @@ M_VALUE = "10"
 
 current_dir = os.getcwd()
 for i in [i for i in os.listdir() if os.path.isdir(i) and "venv" not in i]:
-    path = os.path.join(current_dir, i)
+    path = os.path.join(current_dir, i, "src")
     sources = [os.path.join(path,i) for i in os.listdir(path) if ".wrl" in i]
     for filepath in sources: 
         with open(filepath, "r") as f:
