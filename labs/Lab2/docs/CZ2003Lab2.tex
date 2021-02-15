@@ -176,8 +176,47 @@ Therefore, with the 3 points \((N, M, 0),\ (0, M, N),\ (N, 0, M)\), we get:\\
 As seen in Fig. \ref{fig:1b} above, a sampling resolution of \textbf{1} for both u and v is 
 sufficient for drawing the triangular polygon as it has no curvature and having a higher resolution would
 produce the exact same drawing.
+
+
+\subsection{Origin-Centered Ellipsold with Defined Semi-axes}
+An elipsoid can be parametrically defined using the following functions:\\
+\(x = acos(u)sin(v)\)\\
+\(y = bsin(u)\)\\
+\(z = ccos(u)cos(v)\)\\
+Where \(u \in [-\pi/2, \pi/2]\) and \(v \in [-\pi, \pi]\). Therefore, we can get:\\
+\(x = Ncos(-\pi/2 + \pi u)sin(-\pi + 2\pi v) = \mathbf{8cos(-\pi/2 + \pi u)sin(-\pi + 2\pi v)}\)\\
+\(y = Msin(-\pi/2 + \pi u) = \mathbf{10sin(-\pi/2 + \pi u)}\)\\
+\(z = (N+M/2)cos(-\pi/2 + \pi u)cos(-\pi + 2\pi v) = \mathbf{9cos(-\pi/2 + \pi u)cos(-\pi + 2\pi v)}\)\\
+\(u,v \in [0,1]\)
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1c50_100}
+	  \caption{Resolution: 50 100}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1c25_50}
+	  \caption{Resolution: 25 50}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1c100_200}
+		\caption{Resolution: 100 200}
+	  \end{subfigure}
+	\caption{Plots of the Triangular Polygon defined in "\textbf{1c.wrl}" with differing resolutions}
+	\label{fig:1c}
+\end{figure}
+
+The sampling resolution for v is chosen to be 2 times larger than that of u as the coefficient of v is 
+2 times larger. As seen in Fig. \ref{fig:1c} above, the best resolution obtained was 50, 100 for u and v respectively.
+By decreasing the resolution to 25 and 50, the interpolations could be seen when zoomed in. When the resolution was increased
+instead to 100 and 200, no visible difference could be seen.
+
 \bibliographystyle{ACM-Reference-Format}
 \newpage
+
 
 
 
