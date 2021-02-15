@@ -137,12 +137,45 @@ Therefore, with the 3 points \((N, M, 0),\ (0, M, N),\ (N, 0, M)\), we get:\\
 	\caption{Plots of the plane defined in "\textbf{1a.wrl}" with differing resolutions}
 	\label{fig:1a}
 \end{figure}
- 
 As seen in Fig. \ref{fig:1a} above, a sampling resolution of \textbf{1} for both u and v is 
 sufficient for drawing the plane as it has no curvature and having a higher resolution would
 produce the exact same drawing.
 
+\subsection{Triangular Polygon with Three Defined Vertices}
+To define the Triangular Polygon, we use the formula for defining Bilinear Surface Parametrically,
+and we set two of the points to be the same point, essentially resulting in a Triangular polygon.\\\\
+\(P = P1 + u(P2-P1) + v(P3-P1+u(P4-P3-(P2-P1)))\)\\
+Let P4 = P3, we get:\\
+\(P = P1 + u(P2 - P1) + v(P3 - P1) + uv(P1 - P2)\)\\
+Therefore, with the 3 points \((N, M, 0),\ (0, M, N),\ (N, 0, M)\), we get:\\
+\(x(u,v) = N - Nu + Nuv = \mathbf{8 - 8u + 8uv}\)\\
+\(y(u,v) = M - Mv = \mathbf{10 - 10v}\)\\
+\(z(u,v) = Nu + Mv - Nuv = \mathbf{8u + 10v - 8uv}\)\\
+\(\mathbf{u,v \in [0,1]}\)
 
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1b1_1}
+	  \caption{Resolution: 1 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1b10_10}
+	  \caption{Resolution: 10 10}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1b1000_1000}
+		\caption{Resolution: 1000 1000}
+	  \end{subfigure}
+	\caption{Plots of the Triangular Polygon defined in "\textbf{1b.wrl}" with differing resolutions}
+	\label{fig:1b}
+\end{figure}
+
+As seen in Fig. \ref{fig:1b} above, a sampling resolution of \textbf{1} for both u and v is 
+sufficient for drawing the triangular polygon as it has no curvature and having a higher resolution would
+produce the exact same drawing.
 \bibliographystyle{ACM-Reference-Format}
 \newpage
 
