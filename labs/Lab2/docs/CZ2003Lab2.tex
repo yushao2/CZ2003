@@ -56,7 +56,7 @@
 			SCHOOL OF COMPUTER SCIENCE AND ENGINEERING\\
 			NANYANG TECHNOLOGICAL UNIVERSITY\\
 			SINGAPORE\\
-			2nd Febraury 2021
+			16th Febraury 2021
 			
 		\end{center}
 	\end{titlepage}
@@ -211,8 +211,8 @@ Where \(u \in [-\pi/2, \pi/2]\) and \(v \in [-\pi, \pi]\). Therefore, we can get
 
 The sampling resolution for v is chosen to be 2 times larger than that of u as the coefficient of v is 
 2 times larger. As seen in Fig. \ref{fig:1c} above, the best resolution obtained was \textbf{50, 100} for u and v respectively.
-By decreasing the resolution to 25 and 50, the interpolations could be seen when zoomed in. When the resolution was increased
-instead to 100 and 200, no visible difference could be seen.
+By decreasing the resolution to 25 and 50, the interpolations could be seen on the curvature when zoomed in. 
+When the resolution was increased instead to 100 and 200, no visible difference could be seen.
 
 \subsection{Cylindrical Surface with Defined Radius}
 \label{section:1d}
@@ -245,8 +245,8 @@ Therefore we can obtain the following equations and surface:\\
 \end{figure}
 
 The sampling resolution for v is chosen to be 1 as the parameter is responsible for the straight line sweep.
- As seen in Fig. \ref{fig:1c} above, the best resolution obtained was \textbf{75, 1} for u and v respectively.
-By decreasing the resolution to 50 for u, the interpolations could be seen when zoomed in. When the resolution of u was 
+ As seen in Fig. \ref{fig:1d} above, the best resolution obtained was \textbf{75, 1} for u and v respectively.
+By decreasing the resolution to 50 for u, the interpolations could be seen on the curvature when zoomed in. When the resolution of u was 
 increased instead to 200, no visible difference could be seen between that and when the resolution was 75.
 
 \section{Defining Surface by Translational Sweeping of Curve}
@@ -293,13 +293,13 @@ Therefore, we get:\\
 		\includegraphics[width=.8\linewidth]{fig/2_1000_1}
 		\caption{Resolution: 1000 1}
 	  \end{subfigure}
-	\caption{Plots of the Cylindrical Surface defined in "\textbf{2.wrl}" with differing resolutions}
+	\caption{Plots of the Surface defined in "\textbf{2.wrl}" with differing resolutions}
 	\label{fig:2}
 \end{figure}
 
 Similar to the surface defined in section \ref{section:1d}, the sampling resolution for v is chosen to be 1 as the parameter is responsible for the straight line sweep.
  As seen in Fig. \ref{fig:2} above, the best resolution obtained was \textbf{200, 1} for u and v respectively.
-By decreasing the resolution to 100 for u, the interpolations could be seen when zoomed in. When the resolution of u was 
+By decreasing the resolution to 100 for u, the interpolations could be seen on the curvature when zoomed in. When the resolution of u was 
 increased instead to 1000, no visible difference could be seen between that and when the resolution was 200.
 
 \section{Defining Surface by Rotational Sweeping of Curve}
@@ -313,6 +313,48 @@ We obtain the equations of the curve in lab 1:
 \begin{displaymath}
 	u \in [0, 1]
 \end{displaymath}
+
+After translating by -N in the Z axis, then with clockwise rotational sweeping of \(\pi/N\) performed with an offset angle
+of \(+\frac{3\pi}{2M}\), where N = 8 and M = 10, we get the following functions and surface:\\
+
+
+\begin{displaymath}
+	\mathbf{x(u,v) =  ((8 - 15cos(2\pi u))cos(2\pi u)-8)sin(\frac{3\pi}{20} - \frac{\pi}{8}v)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u,v) =  (8 - 15cos(2\pi u))sin(2\pi u)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{z(u,v) =  ((8 - 15cos(2\pi u))cos(2\pi u)-8)cos(\frac{3\pi}{20} - \frac{\pi}{8}v)}
+\end{displaymath}
+\begin{displaymath}
+	u,v \in [0, 1]
+\end{displaymath}
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/3_200_14}
+	  \caption{Resolution: 200 14}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/3_100_7}
+	  \caption{Resolution: 100 7}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/3_400_28}
+		\caption{Resolution: 400 28}
+	  \end{subfigure}
+	\caption{Plots of the Surface defined in "\textbf{3.wrl}" with differing resolutions}
+	\label{fig:3}
+\end{figure}
+
+The sampling resolution for v is chosen to be approximately 16 times smaller than that of u as the coefficient of v is 
+16 times smaller. As seen in Fig. \ref{fig:3} above, the best resolution obtained was \textbf{200, 14} for u and v respectively.
+By decreasing the resolution to 100 and 7, the interpolations could be seen on the curvature when zoomed in. When the resolution was increased
+instead to 400 and 28, no visible difference could be seen when compared to the shape defined with the resolutions 200 and 14.
 
 \bibliographystyle{ACM-Reference-Format}
 \newpage
