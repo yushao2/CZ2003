@@ -1,0 +1,370 @@
+
+\documentclass[acmlarge,nonacm=true]{acmart}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\usepackage{subcaption}
+
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			\includegraphics[width=0.7\textwidth]{fig/ntu_logo}
+			\vspace{0.8cm}
+			\linebreak
+			\Huge
+			\textbf{Experiment 1: Parametric Curves}
+			
+			\vspace{0.5cm}
+			\LARGE
+			CZ2003 Computer Graphics and Visualization
+			
+			\vspace{1.5cm}
+			\textbf{SS3}\\
+			
+			\begin{table}[h]
+				\begin{tabular}{lc}
+					Name & Matric Number \\\hline
+					Pang Yu Shao & U17216\underline{\textbf{80}}D \\
+				\end{tabular}
+			\end{table}
+			
+			
+			
+			\vfill
+			
+			\vspace{0.8cm}
+			
+			
+			
+			\Large
+			SCHOOL OF COMPUTER SCIENCE AND ENGINEERING\\
+			NANYANG TECHNOLOGICAL UNIVERSITY\\
+			SINGAPORE\\
+			16th Febraury 2021
+			
+		\end{center}
+	\end{titlepage}
+
+ 
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{CZ2003 Computer Graphics and Visualization}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+
+
+\author{Pang Yu Shao}
+\email{C170134@e.ntu.edu.sg}
+\affiliation{\institution{Nanyang Technological University}}
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Pang Yu Shao}
+
+
+
+
+
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+
+% \begin{teaserfigure}
+% 	\includegraphics[width=\textwidth]{bccell}
+% 	\caption{Breast Cancer Cell. Photograph by National Cancer Institute [Public domain], via Wikimedia
+% 		Commons. (\url{https://w.wiki/kS3}).}
+% 	\Description{A breast cancer cell seen through an electron microscope.}
+% \end{teaserfigure}
+% \maketitle
+
+
+
+\tableofcontents
+\newpage
+\section{Defining Surfaces Parametrically}
+\subsection{Plane Passing Through Three Defined Points}
+To define the plane parametrically, we can use the following formula: \(P = P1+u(P2-P1)+v(P3-P1)\)\\
+Therefore, with the 3 points \((N, M, 0),\ (0, M, N),\ (N, 0, M)\), we get:\\
+\(x(u,v) = N - Nu = \mathbf{8 - 8u}\)\\
+\(y(u,v) = M + Mv = \mathbf{10 + 10v}\)\\
+\(z(u,v) = Nu + Mv = \mathbf{8u + 10v}\)\\
+\(\mathbf{u,v \in [0,1]}\)
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1a1_1}
+	  \caption{Resolution: 1 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1a10_10}
+	  \caption{Resolution: 10 10}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1a1000_1000}
+		\caption{Resolution: 1000 1000}
+	  \end{subfigure}
+	\caption{Plots of the plane defined in "\textbf{1a.wrl}" with differing resolutions}
+	\label{fig:1a}
+\end{figure}
+As seen in Fig. \ref{fig:1a} above, a sampling resolution of \textbf{1} for both u and v is 
+sufficient for drawing the plane as it has no curvature and having a higher resolution would
+produce the exact same drawing.
+
+\subsection{Triangular Polygon with Three Defined Vertices}
+To define the Triangular Polygon, we use the formula for defining Bilinear Surface Parametrically,
+and we set two of the points to be the same point, essentially resulting in a Triangular polygon.\\\\
+\(P = P1 + u(P2-P1) + v(P3-P1+u(P4-P3-(P2-P1)))\)\\
+Let P4 = P3, we get:\\
+\(P = P1 + u(P2 - P1) + v(P3 - P1) + uv(P1 - P2)\)\\
+Therefore, with the 3 points \((N, M, 0),\ (0, M, N),\ (N, 0, M)\), we get:\\
+\(x(u,v) = N - Nu + Nuv = \mathbf{8 - 8u + 8uv}\)\\
+\(y(u,v) = M - Mv = \mathbf{10 - 10v}\)\\
+\(z(u,v) = Nu + Mv - Nuv = \mathbf{8u + 10v - 8uv}\)\\
+\(\mathbf{u,v \in [0,1]}\)
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1b1_1}
+	  \caption{Resolution: 1 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1b10_10}
+	  \caption{Resolution: 10 10}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1b1000_1000}
+		\caption{Resolution: 1000 1000}
+	  \end{subfigure}
+	\caption{Plots of the Triangular Polygon defined in "\textbf{1b.wrl}" with differing resolutions}
+	\label{fig:1b}
+\end{figure}
+
+As seen in Fig. \ref{fig:1b} above, a sampling resolution of \textbf{1} for both u and v is 
+sufficient for drawing the triangular polygon as it has no curvature and having a higher resolution would
+produce the exact same drawing.
+
+
+\subsection{Origin-Centered Ellipsold with Defined Semi-axes}
+An elipsoid can be parametrically defined using the following functions:\\
+\(x = acos(u)sin(v)\)\\
+\(y = bsin(u)\)\\
+\(z = ccos(u)cos(v)\)\\
+Where \(u \in [-\pi/2, \pi/2]\) and \(v \in [-\pi, \pi]\). Therefore, we can get:\\
+\(x = Ncos(-\pi/2 + \pi u)sin(-\pi + 2\pi v) = \mathbf{8cos(-\pi/2 + \pi u)sin(-\pi + 2\pi v)}\)\\
+\(y = Msin(-\pi/2 + \pi u) = \mathbf{10sin(-\pi/2 + \pi u)}\)\\
+\(z = (N+M/2)cos(-\pi/2 + \pi u)cos(-\pi + 2\pi v) = \mathbf{9cos(-\pi/2 + \pi u)cos(-\pi + 2\pi v)}\)\\
+\(u,v \in [0,1]\)
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1c50_100}
+	  \caption{Resolution: 50 100}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1c25_50}
+	  \caption{Resolution: 25 50}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1c100_200}
+		\caption{Resolution: 100 200}
+	  \end{subfigure}
+	\caption{Plots of the Ellipsold defined in "\textbf{1c.wrl}" with differing resolutions}
+	\label{fig:1c}
+\end{figure}
+
+The sampling resolution for v is chosen to be 2 times larger than that of u as the coefficient of v is 
+2 times larger. As seen in Fig. \ref{fig:1c} above, the best resolution obtained was \textbf{50, 100} for u and v respectively.
+By decreasing the resolution to 25 and 50, the interpolations could be seen on the curvature when zoomed in. 
+When the resolution was increased instead to 100 and 200, no visible difference could be seen.
+
+\subsection{Cylindrical Surface with Defined Radius}
+\label{section:1d}
+To define a cylindrical surface parametrically, we can define it by first 
+defining a circular curve, followed by performing translational sweeping along the
+Z-axis to obtain the cylindrical surface.\\
+Therefore we can obtain the following equations and surface:\\
+\(x = Ncos(2\pi u) = \mathbf{8cos(2\pi u)}\)\\
+\(y = Nsin(2\pi u) = \mathbf{8sin(2\pi u)}\)\\
+\(z = -N + (M+N)v = \mathbf{-8 + 18v}\)\\
+\(u,v \in [0,1]\)
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1d75_1}
+	  \caption{Resolution: 75 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1d50_1}
+	  \caption{Resolution: 50 1}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1d200_1}
+		\caption{Resolution: 200 1}
+	  \end{subfigure}
+	\caption{Plots of the Cylindrical Surface defined in "\textbf{1d.wrl}" with differing resolutions}
+	\label{fig:1d}
+\end{figure}
+
+The sampling resolution for v is chosen to be 1 as the parameter is responsible for the straight line sweep.
+ As seen in Fig. \ref{fig:1d} above, the best resolution obtained was \textbf{75, 1} for u and v respectively.
+By decreasing the resolution to 50 for u, the interpolations could be seen on the curvature when zoomed in. When the resolution of u was 
+increased instead to 200, no visible difference could be seen between that and when the resolution was 75.
+
+\section{Defining Surface by Translational Sweeping of Curve}
+We obtain the equations of the curve from lab 1:
+
+\begin{displaymath}
+	\mathbf{x(u) = -10.4 + 26.4*u}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u) = tanh(-10.4 + 26.4*u)}
+\end{displaymath}
+\begin{displaymath}
+	u \in [0,1]
+\end{displaymath}
+
+To obtain a surface by translational sweeping of the curve, we can introduce the v parameter in the function of Z.
+Therefore, we get:\\
+\begin{displaymath}
+	\mathbf{x(u,v) = -10.4 + 26.4*u}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u,v) = tanh(-10.4 + 26.4*u)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{z(u,v) = -N + (N+M)v = -8 + 18v}
+\end{displaymath}
+\begin{displaymath}
+	u,v \in [0,1]
+\end{displaymath}
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/2_200_1}
+	  \caption{Resolution: 200 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/2_100_1}
+	  \caption{Resolution: 100 1}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/2_1000_1}
+		\caption{Resolution: 1000 1}
+	  \end{subfigure}
+	\caption{Plots of the Surface defined in "\textbf{2.wrl}" with differing resolutions}
+	\label{fig:2}
+\end{figure}
+
+Similar to the surface defined in section \ref{section:1d}, the sampling resolution for v is chosen to be 1 as the parameter is responsible for the straight line sweep.
+ As seen in Fig. \ref{fig:2} above, the best resolution obtained was \textbf{200, 1} for u and v respectively.
+By decreasing the resolution to 100 for u, the interpolations could be seen on the curvature when zoomed in. When the resolution of u was 
+increased instead to 1000, no visible difference could be seen between that and when the resolution was 200.
+
+\section{Defining Surface by Rotational Sweeping of Curve}
+We obtain the equations of the curve in lab 1:
+\begin{displaymath}
+	\mathbf{x(u) =  (8 - 15cos(2\pi u))cos(2\pi u)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u) =  (8 - 15cos(2\pi u))sin(2\pi u)}
+\end{displaymath}
+\begin{displaymath}
+	u \in [0, 1]
+\end{displaymath}
+
+After translating by -N in the Z axis, then with clockwise rotational sweeping of \(\pi/N\) performed with an offset angle
+of \(+\frac{3\pi}{2M}\), where N = 8 and M = 10, we get the following functions and surface:\\
+
+
+\begin{displaymath}
+	\mathbf{x(u,v) =  ((8 - 15cos(2\pi u))cos(2\pi u)-8)sin(\frac{3\pi}{20} - \frac{\pi}{8}v)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u,v) =  (8 - 15cos(2\pi u))sin(2\pi u)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{z(u,v) =  ((8 - 15cos(2\pi u))cos(2\pi u)-8)cos(\frac{3\pi}{20} - \frac{\pi}{8}v)}
+\end{displaymath}
+\begin{displaymath}
+	u,v \in [0, 1]
+\end{displaymath}
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/3_200_14}
+	  \caption{Resolution: 200 14}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/3_100_7}
+	  \caption{Resolution: 100 7}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/3_400_28}
+		\caption{Resolution: 400 28}
+	  \end{subfigure}
+	\caption{Plots of the Surface defined in "\textbf{3.wrl}" with differing resolutions}
+	\label{fig:3}
+\end{figure}
+
+The sampling resolution for v is chosen to be approximately 16 times smaller than that of u as the coefficient of v is 
+16 times smaller. As seen in Fig. \ref{fig:3} above, the best resolution obtained was \textbf{200, 14} for u and v respectively.
+By decreasing the resolution to 100 and 7, the interpolations could be seen on the curvature when zoomed in. When the resolution was increased
+instead to 400 and 28, no visible difference could be seen when compared to the shape defined with the resolutions 200 and 14.
+
+\bibliographystyle{ACM-Reference-Format}
+\newpage
+
+
+
+
+
+
+\end{document}
+\endinput
+%%
+%% End of file `sample-acmlarge.tex'.
