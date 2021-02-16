@@ -205,14 +205,48 @@ Where \(u \in [-\pi/2, \pi/2]\) and \(v \in [-\pi, \pi]\). Therefore, we can get
 		\includegraphics[width=.8\linewidth]{fig/1c100_200}
 		\caption{Resolution: 100 200}
 	  \end{subfigure}
-	\caption{Plots of the Triangular Polygon defined in "\textbf{1c.wrl}" with differing resolutions}
+	\caption{Plots of the Ellipsold defined in "\textbf{1c.wrl}" with differing resolutions}
 	\label{fig:1c}
 \end{figure}
 
 The sampling resolution for v is chosen to be 2 times larger than that of u as the coefficient of v is 
-2 times larger. As seen in Fig. \ref{fig:1c} above, the best resolution obtained was 50, 100 for u and v respectively.
+2 times larger. As seen in Fig. \ref{fig:1c} above, the best resolution obtained was \textbf{50, 100} for u and v respectively.
 By decreasing the resolution to 25 and 50, the interpolations could be seen when zoomed in. When the resolution was increased
 instead to 100 and 200, no visible difference could be seen.
+
+\subsection{Cylindrical Surface with Defined Radius}
+To define a cylindrical surface parametrically, we can define it by first 
+defining a circular curve, followed by performing translational sweeping along the
+Z-axis to obtain the cylindrical surface.\\
+Therefore we can obtain the following equations and surface:\\
+\(x = Ncos(2\pi u) = \mathbf{8cos(2\pi u)}\)\\
+\(y = Nsin(2\pi u) = \mathbf{8sin(2\pi u)}\)\\
+\(z = -N + (M+N)v = \mathbf{-8 + 18v}\)\\
+\(u,v \in [0,1]\)
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1d75_1}
+	  \caption{Resolution: 75 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/1d50_1}
+	  \caption{Resolution: 50 1}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/1d200_1}
+		\caption{Resolution: 200 1}
+	  \end{subfigure}
+	\caption{Plots of the Cylindrical Surface defined in "\textbf{1d.wrl}" with differing resolutions}
+	\label{fig:1d}
+\end{figure}
+
+The sampling resolution for v is chosen to be 1 as the parameter is responsible for the straight line sweep.
+ As seen in Fig. \ref{fig:1c} above, the best resolution obtained was \textbf{75, 1} for u and v respectively.
+By decreasing the resolution to 50 for u, the interpolations could be seen when zoomed in. When the resolution of u was 
+increased instead to 200, no visible difference could be seen between that and when the resolution was 75.
 
 \bibliographystyle{ACM-Reference-Format}
 \newpage
