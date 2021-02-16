@@ -215,6 +215,7 @@ By decreasing the resolution to 25 and 50, the interpolations could be seen when
 instead to 100 and 200, no visible difference could be seen.
 
 \subsection{Cylindrical Surface with Defined Radius}
+\label{section:1d}
 To define a cylindrical surface parametrically, we can define it by first 
 defining a circular curve, followed by performing translational sweeping along the
 Z-axis to obtain the cylindrical surface.\\
@@ -247,6 +248,71 @@ The sampling resolution for v is chosen to be 1 as the parameter is responsible 
  As seen in Fig. \ref{fig:1c} above, the best resolution obtained was \textbf{75, 1} for u and v respectively.
 By decreasing the resolution to 50 for u, the interpolations could be seen when zoomed in. When the resolution of u was 
 increased instead to 200, no visible difference could be seen between that and when the resolution was 75.
+
+\section{Defining Surface by Translational Sweeping of Curve}
+We obtain the equations of the curve from lab 1:
+
+\begin{displaymath}
+	\mathbf{x(u) = -10.4 + 26.4*u}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u) = tanh(-10.4 + 26.4*u)}
+\end{displaymath}
+\begin{displaymath}
+	u \in [0,1]
+\end{displaymath}
+
+To obtain a surface by translational sweeping of the curve, we can introduce the v parameter in the function of Z.
+Therefore, we get:\\
+\begin{displaymath}
+	\mathbf{x(u,v) = -10.4 + 26.4*u}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u,v) = tanh(-10.4 + 26.4*u)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{z(u,v) = -N + (N+M)v = -8 + 18v}
+\end{displaymath}
+\begin{displaymath}
+	u,v \in [0,1]
+\end{displaymath}
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/2_200_1}
+	  \caption{Resolution: 200 1}
+	\end{subfigure}%
+	\begin{subfigure}{.33\textwidth}
+	  \centering
+	  \includegraphics[width=.8\linewidth]{fig/2_100_1}
+	  \caption{Resolution: 100 1}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{fig/2_1000_1}
+		\caption{Resolution: 1000 1}
+	  \end{subfigure}
+	\caption{Plots of the Cylindrical Surface defined in "\textbf{2.wrl}" with differing resolutions}
+	\label{fig:2}
+\end{figure}
+
+Similar to the surface defined in section \ref{section:1d}, the sampling resolution for v is chosen to be 1 as the parameter is responsible for the straight line sweep.
+ As seen in Fig. \ref{fig:2} above, the best resolution obtained was \textbf{200, 1} for u and v respectively.
+By decreasing the resolution to 100 for u, the interpolations could be seen when zoomed in. When the resolution of u was 
+increased instead to 1000, no visible difference could be seen between that and when the resolution was 200.
+
+\section{Defining Surface by Rotational Sweeping of Curve}
+We obtain the equations of the curve in lab 1:
+\begin{displaymath}
+	\mathbf{x(u) =  (8 - 15cos(2\pi u))cos(2\pi u)}
+\end{displaymath}
+\begin{displaymath}
+	\mathbf{y(u) =  (8 - 15cos(2\pi u))sin(2\pi u)}
+\end{displaymath}
+\begin{displaymath}
+	u \in [0, 1]
+\end{displaymath}
 
 \bibliographystyle{ACM-Reference-Format}
 \newpage
