@@ -1,0 +1,17 @@
+mode 1
+definition "cyl1 = min((5^2 - x^2 - y^2), -z, 10 + z);
+			box1 = min(3-x, x+3, 3-y, y+3, -z, 6+z);
+			cyl2 = min((2.5^2 - y^2 - (z+3)^2), -x, 5 + x);
+			sphere = (1.5^2 - x^2 - y^2 - (z+3)^2);
+			return max(min(min(cyl1, -box1),-cyl2), sphere);"
+bboxSize 10 10 10
+bboxCenter 0 0 -5
+bboxResolution 100 100 100
+diffuseColor 0 1 0
+backgroundColor 0.1 0.8 0.9
+axesColor 0.45 0.1 0.55
+SpecularColor 0.4 0.1 0.3
+Transparency 0
+Shininess 0
+Timecycle 1
+Timerange 0 1

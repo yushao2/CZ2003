@@ -1,0 +1,14 @@
+mode 1
+definition "cone  = (x^2 + y^2)/(64) - z^2;
+			return cone;"
+bboxSize 16 16 2
+bboxCenter 0 0 0
+bboxResolution 40 40 2
+diffuseColor 0 1 0
+backgroundColor 0.1 0.8 0.9
+axesColor 0.45 0.1 0.55
+SpecularColor 0.4 0.1 0.3
+Transparency 0.1
+Shininess 0
+Timecycle 1
+Timerange 0 1

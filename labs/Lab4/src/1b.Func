@@ -1,0 +1,14 @@
+mode 1
+definition "sphere = 100-x^2-y^2-z^2;
+			return sphere;"
+bboxSize 20 20 10
+bboxCenter 0 0 -5
+bboxResolution 50 50 25
+diffuseColor 0 1 0
+backgroundColor 0.1 0.8 0.9
+axesColor 0.45 0.1 0.55
+SpecularColor 0.4 0.1 0.3
+Transparency 0
+Shininess 0
+Timecycle 1
+Timerange 0 1
