@@ -1,0 +1,21 @@
+mode 0
+definition "x_0 = 0.5*((2*pi*u - 0.5*sin(2*pi*u))-3);
+			y_0 = 0.5*cos(2*pi*v)*(1-0.5*cos(2*pi*u));
+			z_0 = 0.5*sin(2*pi*v)*(1-0.5*cos(2*pi*u));
+			x_1 = (cos(2*pi*u)+1)*cos(2*pi*v);
+			y_1 = sin(2*pi*u)*cos(2*pi*v);
+			z_1=sin(2*pi*v);
+			d = 1-abs(1-2*t);
+			x = x_0 + (x_1 - x_0)*d;
+			y = y_0 + (y_1 - y_0)*d;
+			z = z_0 + (z_1 - z_0)*d;"
+parameters 0 1 0 1
+resolution 50 50
+diffuseColor 1 1 1
+backgroundColor 0.1 0.8 0.9
+axesColor 0.45 0.1 0.55
+SpecularColor 0.4 0.1 0.3
+Transparency 0
+Shininess 1
+Timecycle 5
+Timerange 0 1
